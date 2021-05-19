@@ -109,3 +109,30 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
+//do we need to link this or can we copy into main.js?
+class Poster {
+  constructor(imageURL, title, quote) {
+    this.id = Date.now();
+    this.imageURL = imageURL;
+    this.title = title;
+    this.quote = quote;
+  }
+}
+
+var titles = titles[getRandomIndex(titles)];
+var images = images[getRandomIndex(images)];
+var quotes = quotes[getRandomIndex(quotes)];
+
+var currentPoster = new Poster(images, titles, quotes);
+
+// function that takes 1) page load or 2) button click to create random title, image, and quote.
+function getCurrentPoster() {
+  return currentPoster;
+}
+
+// console.log(currentPoster);
+// console.log(titles[getRandomIndex(titles)]);
+// console.log(images[getRandomIndex(images)]);
+// console.log(quotes[getRandomIndex(quotes)]);
+
+// EXAMPLE PATH: var Unicorn = require('../exercises/unicorn');
