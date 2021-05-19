@@ -125,7 +125,12 @@ var quotes = quotes[getRandomIndex(quotes)];
 
 var currentPoster = new Poster(images, titles, quotes);
 
-console.log(currentPoster);
+// function that takes 1) page load or 2) button click to create random title, image, and quote.
+function getCurrentPoster() {
+  return currentPoster;
+}
+
+// console.log(currentPoster);
 // console.log(titles[getRandomIndex(titles)]);
 // console.log(images[getRandomIndex(images)]);
 // console.log(quotes[getRandomIndex(quotes)]);
