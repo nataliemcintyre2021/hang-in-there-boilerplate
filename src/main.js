@@ -106,8 +106,8 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
-// window.addEventListener("load", getCurrentPoster);
-
+window.addEventListener("load", makeNewPoster);
+showRandomButton.addEventListener('click', makeNewPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -115,9 +115,15 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-posterTitle.innerText = titles[getRandomIndex(titles)];
-posterQuote.innerText = quotes[getRandomIndex(quotes)];
-posterImage.src = images[getRandomIndex(images)];
+// posterTitle.innerText = titles[getRandomIndex(titles)];
+// posterQuote.innerText = quotes[getRandomIndex(quotes)];
+// posterImage.src = images[getRandomIndex(images)];
+
+function makeNewPoster() {
+  posterTitle.innerText = titles[getRandomIndex(titles)];
+  posterQuote.innerText = quotes[getRandomIndex(quotes)];
+  posterImage.src = images[getRandomIndex(images)];
+}
 
 //do we need to link this or can we copy into main.js?
 // class Poster {
