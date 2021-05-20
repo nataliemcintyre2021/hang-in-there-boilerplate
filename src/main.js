@@ -106,6 +106,8 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
+// window.addEventListener("load", getCurrentPoster);
+
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -113,21 +115,25 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
+posterTitle.innerText = titles[getRandomIndex(titles)];
+posterQuote.innerText = quotes[getRandomIndex(quotes)];
+posterImage.src = images[getRandomIndex(images)];
+
 //do we need to link this or can we copy into main.js?
-class Poster {
-  constructor(imageURL, title, quote) {
-    this.id = Date.now();
-    this.imageURL = imageURL;
-    this.title = title;
-    this.quote = quote;
-  }
-}
+// class Poster {
+//   constructor(imageURL, title, quote) {
+//     this.id = Date.now();
+//     this.imageURL = imageURL;
+//     this.title = title;
+//     this.quote = quote;
+//   }
+// }
 
-var titles = titles[getRandomIndex(titles)];
-var images = images[getRandomIndex(images)];
-var quotes = quotes[getRandomIndex(quotes)];
+// var titles = titles[getRandomIndex(titles)];
+// var images = images[getRandomIndex(images)];
+// var quotes = quotes[getRandomIndex(quotes)];
 
-var currentPoster = new Poster(images, titles, quotes);
+// var currentPoster = new Poster(images, titles, quotes);
 
 // function that takes 1) page load or 2) button click to create random title, image, and quote.
 function getCurrentPoster() {
