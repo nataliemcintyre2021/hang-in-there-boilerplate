@@ -3,6 +3,12 @@ var showRandomButton = document.querySelector(".show-random");
 var posterImage = document.querySelector(".poster-img");
 var posterTitle = document.querySelector(".poster-title");
 var posterQuote = document.querySelector(".poster-quote");
+// var mainPoster = document.querySelector(".main-poster");
+// iteration one below:
+var makePosterButton = document.querySelector('.show-form');
+var mainPoster = document.querySelector('.main-poster');
+var saveMyPosters = document.querySelector('.saved-posters');
+var posterForm = document.querySelector('.poster-form');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -108,6 +114,8 @@ var currentPoster;
 // event listeners go here 👇
 window.addEventListener("load", makeNewPoster);
 showRandomButton.addEventListener('click', makeNewPoster);
+//iteration one:
+makePosterButton.addEventListener('click', openForm);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -119,10 +127,18 @@ function getRandomIndex(array) {
 // posterQuote.innerText = quotes[getRandomIndex(quotes)];
 // posterImage.src = images[getRandomIndex(images)];
 
+//iteration zero:
 function makeNewPoster() {
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
   posterImage.src = images[getRandomIndex(images)];
+}
+
+//iteration one:
+function openForm() {
+  mainPoster.classList.add('hidden');
+  saveMyPosters.classList.add('hidden');
+  posterForm.classList.remove('hidden');
 }
 
 //do we need to link this or can we copy into main.js?
