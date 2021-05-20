@@ -1,4 +1,8 @@
 // query selector variables go here 👇
+var showRandomButton = document.querySelector(".show-random");
+var posterImage = document.querySelector(".poster-img");
+var posterTitle = document.querySelector(".poster-title");
+var posterQuote = document.querySelector(".poster-quote");
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -102,6 +106,8 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
+window.addEventListener("load", makeNewPoster);
+showRandomButton.addEventListener('click', makeNewPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -109,21 +115,31 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-//do we need to link this or can we copy into main.js?
-class Poster {
-  constructor(imageURL, title, quote) {
-    this.id = Date.now();
-    this.imageURL = imageURL;
-    this.title = title;
-    this.quote = quote;
-  }
+// posterTitle.innerText = titles[getRandomIndex(titles)];
+// posterQuote.innerText = quotes[getRandomIndex(quotes)];
+// posterImage.src = images[getRandomIndex(images)];
+
+function makeNewPoster() {
+  posterTitle.innerText = titles[getRandomIndex(titles)];
+  posterQuote.innerText = quotes[getRandomIndex(quotes)];
+  posterImage.src = images[getRandomIndex(images)];
 }
 
-var titles = titles[getRandomIndex(titles)];
-var images = images[getRandomIndex(images)];
-var quotes = quotes[getRandomIndex(quotes)];
+//do we need to link this or can we copy into main.js?
+// class Poster {
+//   constructor(imageURL, title, quote) {
+//     this.id = Date.now();
+//     this.imageURL = imageURL;
+//     this.title = title;
+//     this.quote = quote;
+//   }
+// }
 
-var currentPoster = new Poster(images, titles, quotes);
+// var titles = titles[getRandomIndex(titles)];
+// var images = images[getRandomIndex(images)];
+// var quotes = quotes[getRandomIndex(quotes)];
+
+// var currentPoster = new Poster(images, titles, quotes);
 
 // function that takes 1) page load or 2) button click to create random title, image, and quote.
 function getCurrentPoster() {
