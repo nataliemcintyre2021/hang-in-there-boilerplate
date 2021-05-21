@@ -1,3 +1,17 @@
+// [X] On the new poster form view, users should be able to fill out the three input fields and then hit the save button
+
+// [] When the save button is clicked, several things will happen:
+//     [] Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
+// query save button, event listener, event handler
+// handler (function) is going to push data from input fields into arrays (images, titles, quotes)
+
+//     [] Use the values from the inputs to create a new instance of our Poster class
+//     [] Change back to the main poster view (hiding the form view again)
+//     [] Display the newly created poster image, title, and quote in the main view
+
+
+
+
 // query selector variables go here 👇
 var showRandomButton = document.querySelector(".show-random");
 var posterImage = document.querySelector(".poster-img");
@@ -12,6 +26,9 @@ var posterForm = document.querySelector('.poster-form');
 var showSavedPostersButton = document.querySelector('.show-saved');
 var takeMeBackButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
+
+// iteration two below:
+var showMyPoster = document.querySelector('.make-poster');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -123,15 +140,15 @@ showSavedPostersButton.addEventListener('click', openSavedPosters);
 takeMeBackButton.addEventListener('click', takeMeBackToMain);
 backToMainButton.addEventListener('click', backToMain);
 
+//iteration two:
+showMyPoster.addEventListener('click', );
+
+
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-
-// posterTitle.innerText = titles[getRandomIndex(titles)];
-// posterQuote.innerText = quotes[getRandomIndex(quotes)];
-// posterImage.src = images[getRandomIndex(images)];
 
 //iteration zero:
 function makeNewPoster() {
@@ -165,21 +182,11 @@ function backToMain() {
   saveMyPosters.classList.add('hidden');
 }
 
-//do we need to link this or can we copy into main.js?
-// class Poster {
-//   constructor(imageURL, title, quote) {
-//     this.id = Date.now();
-//     this.imageURL = imageURL;
-//     this.title = title;
-//     this.quote = quote;
-//   }
-// }
+//iteration two:
 
-// var titles = titles[getRandomIndex(titles)];
-// var images = images[getRandomIndex(images)];
-// var quotes = quotes[getRandomIndex(quotes)];
 
-// var currentPoster = new Poster(images, titles, quotes);
+
+
 
 // function that takes 1) page load or 2) button click to create random title, image, and quote.
 function getCurrentPoster() {
