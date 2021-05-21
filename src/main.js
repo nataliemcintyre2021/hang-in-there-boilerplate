@@ -9,6 +9,7 @@ var makePosterButton = document.querySelector('.show-form');
 var mainPoster = document.querySelector('.main-poster');
 var saveMyPosters = document.querySelector('.saved-posters');
 var posterForm = document.querySelector('.poster-form');
+var showSavedPostersButton = document.querySelector('.show-saved');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -116,6 +117,7 @@ window.addEventListener("load", makeNewPoster);
 showRandomButton.addEventListener('click', makeNewPoster);
 //iteration one:
 makePosterButton.addEventListener('click', openForm);
+showSavedPostersButton.addEventListener('click', openSavedPosters);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -139,6 +141,12 @@ function openForm() {
   mainPoster.classList.add('hidden');
   saveMyPosters.classList.add('hidden');
   posterForm.classList.remove('hidden');
+}
+
+function openSavedPosters() {
+  mainPoster.classList.add('hidden');
+  posterForm.classList.add('hidden');
+  saveMyPosters.classList.remove('hidden');
 }
 
 //do we need to link this or can we copy into main.js?
