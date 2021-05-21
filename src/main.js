@@ -29,6 +29,9 @@ var backToMainButton = document.querySelector('.back-to-main');
 
 // iteration two below:
 var showMyPoster = document.querySelector('.make-poster');
+var imageInput = document.getElementById('poster-image-url');
+var titleInput = document.getElementById('poster-title');
+var quoteInput = document.getElementById('poster-quote');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -141,7 +144,7 @@ takeMeBackButton.addEventListener('click', takeMeBackToMain);
 backToMainButton.addEventListener('click', backToMain);
 
 //iteration two:
-showMyPoster.addEventListener('click', );
+showMyPoster.addEventListener('click', showMyPoster);
 
 
 // functions and event handlers go here 👇
@@ -184,8 +187,11 @@ function backToMain() {
 
 //iteration two:
 
+function showMyPoster() {
+  images.push(imageInput.value);
 
-
+}
+console.log(images);
 
 
 // function that takes 1) page load or 2) button click to create random title, image, and quote.
