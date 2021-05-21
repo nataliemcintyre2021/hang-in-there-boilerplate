@@ -10,6 +10,8 @@ var mainPoster = document.querySelector('.main-poster');
 var saveMyPosters = document.querySelector('.saved-posters');
 var posterForm = document.querySelector('.poster-form');
 var showSavedPostersButton = document.querySelector('.show-saved');
+var takeMeBackButton = document.querySelector('.show-main');
+var backToMainButton = document.querySelector('.back-to-main');
 
 // we've provided you with some data to work with 👇
 var images = [
