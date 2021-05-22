@@ -5,7 +5,7 @@
 // query save button, event listener, event handler
 // handler (function) is going to push data from input fields into arrays (images, titles, quotes)
 
-//     [] Use the values from the inputs to create a new instance of our Poster class
+//     [X] Use the values from the inputs to create a new instance of our Poster class
 //     [] Change back to the main poster view (hiding the form view again)
 //     [] Display the newly created poster image, title, and quote in the main view
 
@@ -163,25 +163,21 @@ function makeNewPoster() {
 //iteration one:
 function openForm() {
   mainPoster.classList.add('hidden');
-  saveMyPosters.classList.add('hidden');
   posterForm.classList.remove('hidden');
 }
 
 function openSavedPosters() {
   mainPoster.classList.add('hidden');
-  posterForm.classList.add('hidden');
   saveMyPosters.classList.remove('hidden');
 }
 
 function takeMeBackToMain() {
   mainPoster.classList.remove('hidden');
   posterForm.classList.add('hidden');
-  saveMyPosters.classList.add('hidden');
 }
 
 function backToMain() {
   mainPoster.classList.remove('hidden');
-  posterForm.classList.add('hidden');
   saveMyPosters.classList.add('hidden');
 }
 
