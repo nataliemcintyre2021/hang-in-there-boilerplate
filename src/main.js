@@ -1,15 +1,8 @@
-// [X] On the new poster form view, users should be able to fill out the three input fields and then hit the save button
 
-// [] When the save button is clicked, several things will happen:
-//     [x] Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
-// query save button, event listener, event handler
-// handler (function) is going to push data from input fields into arrays (images, titles, quotes)
-
-//     [X] Use the values from the inputs to create a new instance of our Poster class
-//     [X] Change back to the main poster view (hiding the form view again)
-//     [X] Display the newly created poster image, title, and quote in the main view
-
-
+// [X] When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
+// [X] If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
+// [X] When a user clicks the “Show Saved Posters” button, we should see the saved posters section
+// [X] All the posters in the savedPosters array should be displayed in the saved posters grid section
 
 // query selector variables go here 👇
 var showRandomButton = document.querySelector(".show-random");
@@ -31,6 +24,10 @@ var showMyPosterButton = document.querySelector('.make-poster');
 var imageInput = document.getElementById('poster-image-url');
 var titleInput = document.querySelector('#poster-title');
 var quoteInput = document.querySelector('#poster-quote');
+
+//iteration three below:
+var savePosterButton = document.querySelector('.save-poster');
+var savedPosterGrid = document.querySelector('.saved-posters-grid');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -145,7 +142,8 @@ backToMainButton.addEventListener('click', backToMain);
 //iteration two:
 showMyPosterButton.addEventListener('click', showMyPoster);
 
-
+//iteration three:
+savePosterButton.addEventListener('click', savePoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -182,8 +180,6 @@ function backToMain() {
 }
 
 //iteration two:
-
-
 function showMyPoster() {
   event.preventDefault();
 
@@ -200,34 +196,28 @@ function showMyPoster() {
   posterQuote.innerText = currentPoster.quote;
   posterImage.src = currentPoster.imageURL;
 }
-  console.log(currentPoster);
+  // console.log(currentPoster);
 
-// var newImage = new Poster(imageInput.value, titleInput.value, quoteInput.value)
+// iteration three:
 
-//create function that creates new object instance of Poster class
-//with the last element on each array
+function addGrid() {
+  var posterHTML = '';
 
+  for (var i = 0; i<savedPosters.length; i++) {
+    posterHTML += `<article class="mini-poster">
+    <img src=${savedPosters[i].imageURL} />
+    <h2>${savedPosters[i].title}</h2>
+    <h4>${savedPosters[i].quote}</h4>
+    </article>`
+  }
+  savedPosterGrid.innerHTML = posterHTML;
+}
 
-
-  // target.addEventListener('on click', function () {
-  //  doSomething(parameter)
-  // ;});
-  // doSomething(event) {
-  // //whatever
-  // }
-
-
-
-
-
-// function that takes 1) page load or 2) button click to create random title, image, and quote.
-// function getCurrentPoster() {
-//   return currentPoster;
-// }
-
-// console.log(currentPoster);
-// console.log(titles[getRandomIndex(titles)]);
-// console.log(images[getRandomIndex(images)]);
-// console.log(quotes[getRandomIndex(quotes)]);
-
-// EXAMPLE PATH: var Unicorn = require('../exercises/unicorn');
+  function savePoster() {
+    if (!savedPosters.includes(currentPoster)) {
+      savedPosters.push(currentPoster);
+    }
+    addGrid();
+    // saveMyPosters.classList.add('mini-poster');
+    openSavedPosters();
+  }
