@@ -1,7 +1,7 @@
 // [X] On the new poster form view, users should be able to fill out the three input fields and then hit the save button
 
 // [] When the save button is clicked, several things will happen:
-//     [] Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
+//     [x] Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
 // query save button, event listener, event handler
 // handler (function) is going to push data from input fields into arrays (images, titles, quotes)
 
@@ -144,8 +144,7 @@ backToMainButton.addEventListener('click', backToMain);
 
 //iteration two:
 showMyPosterButton.addEventListener('click', showMyPoster);
-//   showMyPoster(event);
-// });
+
 
 
 // functions and event handlers go here 👇
@@ -191,6 +190,8 @@ function backToMain() {
 function showMyPoster() {
   event.preventDefault();
   images.push(imageInput.value);
+  titles.push(titleInput.value);
+  quotes.push(quoteInput.value);
   console.log(imageInput);
 }
 
