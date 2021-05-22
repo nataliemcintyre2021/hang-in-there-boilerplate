@@ -1,14 +1,8 @@
-// [X] On the new poster form view, users should be able to fill out the three input fields and then hit the save button
 
-// [] When the save button is clicked, several things will happen:
-//     [x] Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
-// query save button, event listener, event handler
-// handler (function) is going to push data from input fields into arrays (images, titles, quotes)
-
-//     [X] Use the values from the inputs to create a new instance of our Poster class
-//     [X] Change back to the main poster view (hiding the form view again)
-//     [X] Display the newly created poster image, title, and quote in the main view
-
+// [X] When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
+// [] If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
+// [] When a user clicks the “Show Saved Posters” button, we should see the saved posters section
+// [] All the posters in the savedPosters array should be displayed in the saved posters grid section
 
 
 // query selector variables go here 👇
@@ -31,6 +25,9 @@ var showMyPosterButton = document.querySelector('.make-poster');
 var imageInput = document.getElementById('poster-image-url');
 var titleInput = document.querySelector('#poster-title');
 var quoteInput = document.querySelector('#poster-quote');
+
+//iteration three below:
+var savePosterButton = document.querySelector('.save-poster');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -145,6 +142,8 @@ backToMainButton.addEventListener('click', backToMain);
 //iteration two:
 showMyPosterButton.addEventListener('click', showMyPoster);
 
+//iteration three:
+savePosterButton.addEventListener('click', savePoster);
 
 
 // functions and event handlers go here 👇
@@ -201,6 +200,10 @@ function showMyPoster() {
   posterImage.src = currentPoster.imageURL;
 }
   console.log(currentPoster);
+
+  function savePoster() {
+    savedPosters.push(currentPoster);
+  }
 
 // var newImage = new Poster(imageInput.value, titleInput.value, quoteInput.value)
 
