@@ -11,7 +11,6 @@
 
 
 
-
 // query selector variables go here 👇
 var showRandomButton = document.querySelector(".show-random");
 var posterImage = document.querySelector(".poster-img");
@@ -28,9 +27,9 @@ var takeMeBackButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
 
 // iteration two below:
-var showMyPoster = document.querySelector('.make-poster');
-var imageInput = document.getElementById('poster-image-url');
-var titleInput = document.getElementById('poster-title');
+var showMyPosterButton = document.querySelector('.make-poster');
+var imageInput = document.querySelector('#poster-image-url');
+var titleInput = document.guerySelector('#poster-title');
 var quoteInput = document.getElementById('poster-quote');
 
 // we've provided you with some data to work with 👇
@@ -135,7 +134,7 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
-window.addEventListener("load", makeNewPoster);
+window.addEventListener('load', makeNewPoster);
 showRandomButton.addEventListener('click', makeNewPoster);
 //iteration one:
 makePosterButton.addEventListener('click', openForm);
@@ -144,7 +143,9 @@ takeMeBackButton.addEventListener('click', takeMeBackToMain);
 backToMainButton.addEventListener('click', backToMain);
 
 //iteration two:
-showMyPoster.addEventListener('click', showMyPoster);
+showMyPosterButton.addEventListener('click', showMyPoster);
+//   showMyPoster(event);
+// });
 
 
 // functions and event handlers go here 👇
@@ -188,7 +189,18 @@ function backToMain() {
 //iteration two:
 
 function showMyPoster() {
+  // event.preventDefault();
   images.push(imageInput.value);
+
+
+
+  // target.addEventListener('on click', function () {
+  //  doSomething(parameter)
+  // ;});
+  // doSomething(event) {
+  // //whatever
+  // }
+
 
 }
 console.log(images);
