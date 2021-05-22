@@ -2,8 +2,7 @@
 // [X] When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
 // [X] If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
 // [X] When a user clicks the “Show Saved Posters” button, we should see the saved posters section
-// [] All the posters in the savedPosters array should be displayed in the saved posters grid section
-
+// [X] All the posters in the savedPosters array should be displayed in the saved posters grid section
 
 // query selector variables go here 👇
 var showRandomButton = document.querySelector(".show-random");
@@ -28,6 +27,7 @@ var quoteInput = document.querySelector('#poster-quote');
 
 //iteration three below:
 var savePosterButton = document.querySelector('.save-poster');
+var savedPosterGrid = document.querySelector('.saved-posters-grid');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -145,7 +145,6 @@ showMyPosterButton.addEventListener('click', showMyPoster);
 //iteration three:
 savePosterButton.addEventListener('click', savePoster);
 
-
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
@@ -181,8 +180,6 @@ function backToMain() {
 }
 
 //iteration two:
-
-
 function showMyPoster() {
   event.preventDefault();
 
@@ -202,39 +199,25 @@ function showMyPoster() {
   // console.log(currentPoster);
 
 // iteration three:
+
+function addGrid() {
+  var posterHTML = '';
+
+  for (var i = 0; i<savedPosters.length; i++) {
+    posterHTML += `<article class="mini-poster">
+    <img src=${savedPosters[i].imageURL} />
+    <h2>${savedPosters[i].title}</h2>
+    <h4>${savedPosters[i].quote}</h4>
+    </article>`
+  }
+  savedPosterGrid.innerHTML = posterHTML;
+}
+
   function savePoster() {
     if (!savedPosters.includes(currentPoster)) {
       savedPosters.push(currentPoster);
     }
+    addGrid();
+    // saveMyPosters.classList.add('mini-poster');
     openSavedPosters();
   }
-
-// var newImage = new Poster(imageInput.value, titleInput.value, quoteInput.value)
-
-//create function that creates new object instance of Poster class
-//with the last element on each array
-
-
-
-  // target.addEventListener('on click', function () {
-  //  doSomething(parameter)
-  // ;});
-  // doSomething(event) {
-  // //whatever
-  // }
-
-
-
-
-
-// function that takes 1) page load or 2) button click to create random title, image, and quote.
-// function getCurrentPoster() {
-//   return currentPoster;
-// }
-
-// console.log(currentPoster);
-// console.log(titles[getRandomIndex(titles)]);
-// console.log(images[getRandomIndex(images)]);
-// console.log(quotes[getRandomIndex(quotes)]);
-
-// EXAMPLE PATH: var Unicorn = require('../exercises/unicorn');
