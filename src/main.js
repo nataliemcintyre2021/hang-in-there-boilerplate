@@ -6,7 +6,7 @@
 // handler (function) is going to push data from input fields into arrays (images, titles, quotes)
 
 //     [X] Use the values from the inputs to create a new instance of our Poster class
-//     [] Change back to the main poster view (hiding the form view again)
+//     [X] Change back to the main poster view (hiding the form view again)
 //     [] Display the newly created poster image, title, and quote in the main view
 
 
@@ -193,6 +193,8 @@ function showMyPoster() {
   quotes.push(quoteInput.value);
   // console.log(imageInput);
   currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
+  mainPoster.classList.remove('hidden');
+  posterForm.classList.add('hidden');
 }
   console.log(currentPoster);
 
