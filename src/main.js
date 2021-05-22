@@ -1,7 +1,7 @@
 
 // [X] When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
 // [X] If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
-// [] When a user clicks the “Show Saved Posters” button, we should see the saved posters section
+// [X] When a user clicks the “Show Saved Posters” button, we should see the saved posters section
 // [] All the posters in the savedPosters array should be displayed in the saved posters grid section
 
 
@@ -206,6 +206,7 @@ function showMyPoster() {
     if (!savedPosters.includes(currentPoster)) {
       savedPosters.push(currentPoster);
     }
+    openSavedPosters();
   }
 
 // var newImage = new Poster(imageInput.value, titleInput.value, quoteInput.value)
