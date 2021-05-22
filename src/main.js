@@ -28,9 +28,9 @@ var backToMainButton = document.querySelector('.back-to-main');
 
 // iteration two below:
 var showMyPosterButton = document.querySelector('.make-poster');
-var imageInput = document.querySelector('#poster-image-url');
-var titleInput = document.guerySelector('#poster-title');
-var quoteInput = document.getElementById('poster-quote');
+var imageInput = document.getElementById('poster-image-url');
+var titleInput = document.querySelector('#poster-title');
+var quoteInput = document.querySelector('#poster-quote');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -189,8 +189,10 @@ function backToMain() {
 //iteration two:
 
 function showMyPoster() {
-  // event.preventDefault();
+  event.preventDefault();
   images.push(imageInput.value);
+  console.log(imageInput);
+}
 
 
 
@@ -202,8 +204,7 @@ function showMyPoster() {
   // }
 
 
-}
-console.log(images);
+
 
 
 // function that takes 1) page load or 2) button click to create random title, image, and quote.
