@@ -187,13 +187,23 @@ function backToMain() {
 
 //iteration two:
 
+
 function showMyPoster() {
   event.preventDefault();
+
+  // return newImage;
   images.push(imageInput.value);
   titles.push(titleInput.value);
   quotes.push(quoteInput.value);
-  console.log(imageInput);
+  // console.log(imageInput);
+  currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
 }
+  console.log(currentPoster);
+
+// var newImage = new Poster(imageInput.value, titleInput.value, quoteInput.value)
+
+//create function that creates new object instance of Poster class
+//with the last element on each array
 
 
 
