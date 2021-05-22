@@ -7,7 +7,7 @@
 
 //     [X] Use the values from the inputs to create a new instance of our Poster class
 //     [X] Change back to the main poster view (hiding the form view again)
-//     [] Display the newly created poster image, title, and quote in the main view
+//     [X] Display the newly created poster image, title, and quote in the main view
 
 
 
@@ -195,6 +195,10 @@ function showMyPoster() {
   currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
   mainPoster.classList.remove('hidden');
   posterForm.classList.add('hidden');
+
+  posterTitle.innerText = currentPoster.title;
+  posterQuote.innerText = currentPoster.quote;
+  posterImage.src = currentPoster.imageURL;
 }
   console.log(currentPoster);
 
@@ -217,9 +221,9 @@ function showMyPoster() {
 
 
 // function that takes 1) page load or 2) button click to create random title, image, and quote.
-function getCurrentPoster() {
-  return currentPoster;
-}
+// function getCurrentPoster() {
+//   return currentPoster;
+// }
 
 // console.log(currentPoster);
 // console.log(titles[getRandomIndex(titles)]);
