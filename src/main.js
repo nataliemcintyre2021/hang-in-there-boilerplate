@@ -1,3 +1,16 @@
+// [X] On the new poster form view, users should be able to fill out the three input fields and then hit the save button
+
+// [] When the save button is clicked, several things will happen:
+//     [x] Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
+// query save button, event listener, event handler
+// handler (function) is going to push data from input fields into arrays (images, titles, quotes)
+
+//     [X] Use the values from the inputs to create a new instance of our Poster class
+//     [X] Change back to the main poster view (hiding the form view again)
+//     [X] Display the newly created poster image, title, and quote in the main view
+
+
+
 // query selector variables go here 👇
 var showRandomButton = document.querySelector(".show-random");
 var posterImage = document.querySelector(".poster-img");
@@ -12,6 +25,12 @@ var posterForm = document.querySelector('.poster-form');
 var showSavedPostersButton = document.querySelector('.show-saved');
 var takeMeBackButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
+
+// iteration two below:
+var showMyPosterButton = document.querySelector('.make-poster');
+var imageInput = document.getElementById('poster-image-url');
+var titleInput = document.querySelector('#poster-title');
+var quoteInput = document.querySelector('#poster-quote');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -115,7 +134,7 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
-window.addEventListener("load", makeNewPoster);
+window.addEventListener('load', makeNewPoster);
 showRandomButton.addEventListener('click', makeNewPoster);
 //iteration one:
 makePosterButton.addEventListener('click', openForm);
@@ -123,15 +142,16 @@ showSavedPostersButton.addEventListener('click', openSavedPosters);
 takeMeBackButton.addEventListener('click', takeMeBackToMain);
 backToMainButton.addEventListener('click', backToMain);
 
+//iteration two:
+showMyPosterButton.addEventListener('click', showMyPoster);
+
+
+
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-
-// posterTitle.innerText = titles[getRandomIndex(titles)];
-// posterQuote.innerText = quotes[getRandomIndex(quotes)];
-// posterImage.src = images[getRandomIndex(images)];
 
 //iteration zero:
 function makeNewPoster() {
@@ -143,48 +163,67 @@ function makeNewPoster() {
 //iteration one:
 function openForm() {
   mainPoster.classList.add('hidden');
-  saveMyPosters.classList.add('hidden');
   posterForm.classList.remove('hidden');
 }
 
 function openSavedPosters() {
   mainPoster.classList.add('hidden');
-  posterForm.classList.add('hidden');
   saveMyPosters.classList.remove('hidden');
 }
 
 function takeMeBackToMain() {
   mainPoster.classList.remove('hidden');
   posterForm.classList.add('hidden');
-  saveMyPosters.classList.add('hidden');
 }
 
 function backToMain() {
   mainPoster.classList.remove('hidden');
-  posterForm.classList.add('hidden');
   saveMyPosters.classList.add('hidden');
 }
 
-//do we need to link this or can we copy into main.js?
-// class Poster {
-//   constructor(imageURL, title, quote) {
-//     this.id = Date.now();
-//     this.imageURL = imageURL;
-//     this.title = title;
-//     this.quote = quote;
-//   }
-// }
+//iteration two:
 
-// var titles = titles[getRandomIndex(titles)];
-// var images = images[getRandomIndex(images)];
-// var quotes = quotes[getRandomIndex(quotes)];
 
-// var currentPoster = new Poster(images, titles, quotes);
+function showMyPoster() {
+  event.preventDefault();
+
+  // return newImage;
+  images.push(imageInput.value);
+  titles.push(titleInput.value);
+  quotes.push(quoteInput.value);
+  // console.log(imageInput);
+  currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
+  mainPoster.classList.remove('hidden');
+  posterForm.classList.add('hidden');
+
+  posterTitle.innerText = currentPoster.title;
+  posterQuote.innerText = currentPoster.quote;
+  posterImage.src = currentPoster.imageURL;
+}
+  console.log(currentPoster);
+
+// var newImage = new Poster(imageInput.value, titleInput.value, quoteInput.value)
+
+//create function that creates new object instance of Poster class
+//with the last element on each array
+
+
+
+  // target.addEventListener('on click', function () {
+  //  doSomething(parameter)
+  // ;});
+  // doSomething(event) {
+  // //whatever
+  // }
+
+
+
+
 
 // function that takes 1) page load or 2) button click to create random title, image, and quote.
-function getCurrentPoster() {
-  return currentPoster;
-}
+// function getCurrentPoster() {
+//   return currentPoster;
+// }
 
 // console.log(currentPoster);
 // console.log(titles[getRandomIndex(titles)]);
