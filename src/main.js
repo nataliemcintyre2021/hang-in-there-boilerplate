@@ -1,8 +1,4 @@
 
-// [X] When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
-// [X] If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
-// [X] When a user clicks the “Show Saved Posters” button, we should see the saved posters section
-// [X] All the posters in the savedPosters array should be displayed in the saved posters grid section
 
 // query selector variables go here 👇
 var showRandomButton = document.querySelector(".show-random");
@@ -204,8 +200,8 @@ function addGrid() {
   var posterHTML = '';
 
   for (var i = 0; i<savedPosters.length; i++) {
-    posterHTML += `<article class="mini-poster">
-    <img src=${savedPosters[i].imageURL} />
+    posterHTML += `<article class="mini-poster" ondblclick="remove(this)">
+    <img src=${savedPosters[i].imageURL}>
     <h2>${savedPosters[i].title}</h2>
     <h4>${savedPosters[i].quote}</h4>
     </article>`
@@ -221,3 +217,17 @@ function addGrid() {
     // saveMyPosters.classList.add('mini-poster');
     openSavedPosters();
   }
+
+  function remove(node) {
+    var element = node;
+    element.remove();
+  };
+
+  // iteration four:
+// [] From the saved posters view, if a user double clicks a saved poster,
+// it will be deleted
+
+// Hint: How will you update the data model to achieve this?
+
+//query something (possibly: "article class: mini-poster"; unique ID?)
+//create event listener with double click event
