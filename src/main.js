@@ -1,12 +1,8 @@
-
-
 // query selector variables go here 👇
-var showRandomButton = document.querySelector(".show-random");
-var posterImage = document.querySelector(".poster-img");
-var posterTitle = document.querySelector(".poster-title");
-var posterQuote = document.querySelector(".poster-quote");
-// var mainPoster = document.querySelector(".main-poster");
-// iteration one below:
+var showRandomButton = document.querySelector('.show-random');
+var posterImage = document.querySelector('.poster-img');
+var posterTitle = document.querySelector('.poster-title');
+var posterQuote = document.querySelector('.poster-quote');
 var makePosterButton = document.querySelector('.show-form');
 var mainPoster = document.querySelector('.main-poster');
 var saveMyPosters = document.querySelector('.saved-posters');
@@ -14,14 +10,10 @@ var posterForm = document.querySelector('.poster-form');
 var showSavedPostersButton = document.querySelector('.show-saved');
 var takeMeBackButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
-
-// iteration two below:
 var showMyPosterButton = document.querySelector('.make-poster');
 var imageInput = document.getElementById('poster-image-url');
 var titleInput = document.querySelector('#poster-title');
 var quoteInput = document.querySelector('#poster-quote');
-
-//iteration three below:
 var savePosterButton = document.querySelector('.save-poster');
 var savedPosterGrid = document.querySelector('.saved-posters-grid');
 
@@ -129,32 +121,26 @@ var currentPoster;
 // event listeners go here 👇
 window.addEventListener('load', makeNewPoster);
 showRandomButton.addEventListener('click', makeNewPoster);
-//iteration one:
 makePosterButton.addEventListener('click', openForm);
 showSavedPostersButton.addEventListener('click', openSavedPosters);
 takeMeBackButton.addEventListener('click', takeMeBackToMain);
 backToMainButton.addEventListener('click', backToMain);
-
-//iteration two:
 showMyPosterButton.addEventListener('click', showMyPoster);
-
-//iteration three:
 savePosterButton.addEventListener('click', savePoster);
 
 // functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
+// (we've provided one for you to get you started)
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-//iteration zero:
 function makeNewPoster() {
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
   posterImage.src = images[getRandomIndex(images)];
+  currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
 }
 
-//iteration one:
 function openForm() {
   mainPoster.classList.add('hidden');
   posterForm.classList.remove('hidden');
@@ -175,32 +161,22 @@ function backToMain() {
   saveMyPosters.classList.add('hidden');
 }
 
-//iteration two:
 function showMyPoster() {
   event.preventDefault();
-
-  // return newImage;
   images.push(imageInput.value);
   titles.push(titleInput.value);
   quotes.push(quoteInput.value);
-  // console.log(imageInput);
   currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
-  mainPoster.classList.remove('hidden');
-  posterForm.classList.add('hidden');
-
+  takeMeBackToMain();
   posterTitle.innerText = currentPoster.title;
   posterQuote.innerText = currentPoster.quote;
   posterImage.src = currentPoster.imageURL;
 }
-  // console.log(currentPoster);
-
-// iteration three:
 
 function addGrid() {
   var posterHTML = '';
-
   for (var i = 0; i<savedPosters.length; i++) {
-    posterHTML += `<article class="mini-poster" ondblclick="remove(this)">
+    posterHTML += `<article class='mini-poster' ondblclick='removePoster(this)'>
     <img src=${savedPosters[i].imageURL}>
     <h2>${savedPosters[i].title}</h2>
     <h4>${savedPosters[i].quote}</h4>
@@ -214,20 +190,10 @@ function addGrid() {
       savedPosters.push(currentPoster);
     }
     addGrid();
-    // saveMyPosters.classList.add('mini-poster');
     openSavedPosters();
   }
 
-  function remove(node) {
-    var element = node;
+  function removePoster(miniPoster) {
+    var element = miniPoster;
     element.remove();
-  };
-
-  // iteration four:
-// [] From the saved posters view, if a user double clicks a saved poster,
-// it will be deleted
-
-// Hint: How will you update the data model to achieve this?
-
-//query something (possibly: "article class: mini-poster"; unique ID?)
-//create event listener with double click event
+  }
