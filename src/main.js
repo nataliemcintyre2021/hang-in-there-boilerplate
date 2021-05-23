@@ -152,6 +152,16 @@ function makeNewPoster() {
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
   posterImage.src = images[getRandomIndex(images)];
+
+  // We need to get this random info into currentPoster variable as an object (via class constructor)
+  currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
+
+
+  // currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
+  //
+  // posterTitle.innerText = currentPoster.title;
+  // posterQuote.innerText = currentPoster.quote;
+  // posterImage.src = currentPoster.imageURL;
 }
 
 //iteration one:
