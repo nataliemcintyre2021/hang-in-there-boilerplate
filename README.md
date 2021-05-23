@@ -15,9 +15,12 @@ Project spec & rubric can be found [here](https://frontend.turing.io/projects/mo
 
 <!-- README is well formatted and gives good context about the project. At minimum, a sufficient README should contain - contributors, technologies used, instructions for running and viewing the project, deploy link (gh-pages), images/GIFs if necessary, future additions, etc. Think about what a user needs to understand and get the full picture of the application. -->
 
-The contributors to this project were Eric Sergeant and Natalie McIntyre. Technologies used included JavaScript, HTML, CSS, git and GitHub.
+## Final Project Details
+
+The contributors to this project were [Eric Sergeant](https://github.com/ericsergeant) and [Natalie McIntyre](https://github.com/nataliemcintyre2021). Technologies used included JavaScript, HTML, CSS, git and GitHub.
 
 This project uses JavaScript to interact with HTML and CSS code to create a functioning webpage that allows user interaction.
+
 Deploy link:
 
 First image: home page showing random image on load and allows user to switch views my clicking on Show Random Poster Button.
